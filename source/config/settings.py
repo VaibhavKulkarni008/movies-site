@@ -12,7 +12,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = ['*']
 
@@ -20,6 +20,6 @@ DEBUG = dj_database_url.config('DEBUG', default=False)
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=dj_database_url.config('DATABASE_URL', default='django.db.backends.sqlite3', engine='django.db.backends.sqlite3')
+        default=dj_database_url.config('DATABASE_URL')
     )
 }
