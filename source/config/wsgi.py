@@ -13,6 +13,6 @@ from django.core.wsgi import get_wsgi_application
 if os.environ.get('DJANGO_SETTINGS_MODULE'):
     pass
 else:
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.production')
 
 application = get_wsgi_application()
