@@ -6,7 +6,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from django_filters import rest_framework as django_filters
 
-from common.permissions import IsAdminOrAuthenticated
+from common.permissions import IsAdminOrReadOnly
 from .filters import MovieFilter
 from .models import Movie, Director
 from .serializers import GetMoviesSerializer, CreateMovieSerializer, DirectorSerializer, GenreSerializer
@@ -20,7 +20,7 @@ class MoviesViewSet(ModelViewSet):
     pagination_class = ThirtyPagePagination
     search_fields = ('name', )
     ordering_fields = ('name', 'imdb_score', 'popularity_score')
-    permission_classes = (IsAdminOrAuthenticated,)
+    permission_classes = (IsAdminOrReadOnly,)
 
     def get_serializer_class(self):
         if self.request.method == "GET":
@@ -32,12 +32,12 @@ class MoviesViewSet(ModelViewSet):
 class DirectorViewSet(ModelViewSet):
     queryset = Director.objects.all()
     pagination_class = ThirtyPagePagination
-    permission_classes = (IsAdminOrAuthenticated,)
+    permission_classes = (IsAdminOrReadOnly,)
     serializer_class = DirectorSerializer
 
 
 class GenreViewSet(ModelViewSet):
     queryset = Director.objects.all()
     pagination_class = ThirtyPagePagination
-    permission_classes = (IsAdminOrAuthenticated,)
+    permission_classes = (IsAdminOrReadOnly,)
     serializer_class = GenreSerializer
