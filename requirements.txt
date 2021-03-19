@@ -5,7 +5,7 @@ dj-database-url==0.5.0
 Django==2.2.3
 django-extensions==2.1.9
 django-filter==2.1.0
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 djangorestframework-simplejwt==4.3.0
 gunicorn==19.9.0
 ipython==7.6.1
